@@ -23,5 +23,111 @@
  9. `func reduce<T, U>(array: [T], initial: U, combine: (U, T) -> U) -> U`
  10. recursive versions of `map`, `filter` and `reduce` 😏
  */
+func mapIntsToInts(array: [Int], transform: (Int) -> Int) -> [Int] {
+  var mappedArray: [Int] = []
+  for value in array {
+    mappedArray += [transform(value)]
+  }
+  return mappedArray
+}
 
+func mapIntsToStrings(array: [Int], transform: (Int) -> String) -> [String] {
+  var mappedArray: [String] = []
+  for value in array {
+    mappedArray += [transform(value)]
+  }
+  return mappedArray
+}
 
+func filterInts(array: [Int], isIncluded: (Int) -> Bool) -> [Int] {
+  var filteredArray: [Int] = []
+  for value in array {
+    if isIncluded(value) {
+      filteredArray += [value]
+    }
+  }
+  return filteredArray
+}
+
+func filterStrings(array: [String], isIncluded: (String) -> Bool) -> [String] {
+  var filteredArray: [String] = []
+  for value in array {
+    if isIncluded(value) {
+      filteredArray += [value]
+    }
+  }
+  return filteredArray
+}
+
+func reduceIntsToInt(array: [Int], initial: Int, combine: (Int, Int) -> Int) -> Int {
+  var reducedValue: Int = initial
+  for value in array {
+    reducedValue = combine(reducedValue, value)
+  }
+  return reducedValue
+}
+
+func reduceStringsToStrings(array: [String], initial: String, combine: (String, String) -> String) -> String {
+  var reducedValue: String = initial
+  for value in array {
+    reducedValue = combine(reducedValue, value)
+  }
+  return reducedValue
+}
+
+func map<T, U>(array: [T], transform: (T) -> U) -> [U] {
+  var mappedArray: [U] = []
+  for value in array {
+    mappedArray += [transform(value)]
+  }
+  return mappedArray
+}
+
+func filter<T>(array: [T], isIncluded: (T) -> Bool) -> [T] {
+  var filteredArray: [T] = []
+  for value in array {
+    if isIncluded(value) {
+      filteredArray += [value]
+    }
+  }
+  return filteredArray
+}
+
+func reduce<T, U>(array: [T], initial: U, combine: (U, T) -> U) -> U {
+  var reducedValue: U = initial
+  for value in array {
+    reducedValue = combine(reducedValue, value)
+  }
+  return reducedValue
+}
+
+//Recursive######################################
+func mapRec<T, U>(array: [T], result: [U] = [], transform: (T) -> U) -> [U] {
+  if array.count != result.count {
+    var result = result
+    result += [transform(array[result.count])]
+    return mapRec(array: array, result: result, transform: transform)
+  } else {
+    return result
+  }
+}
+
+mapRec(array: [1, 2, 3, 5, 6], transform: { val in
+  return val * 2
+})
+
+func reduceRec<T, U>(array: [T], result: U, combine: (T, U) -> U) -> U {
+  if array.count > 0 {
+    var result = result
+    var array = array
+    result = combine(array.last!, result)
+    array.popLast()
+    return reduceRec(array: array, result: result, combine: combine)
+  } else {
+    return result
+  }
+}
+
+reduceRec(array: [1,2,3,4], result: 0, combine: {el, res in
+  return el + res
+})

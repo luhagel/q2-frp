@@ -17,14 +17,25 @@ enum DataToUpdate: String {
 
 class ViewController: UIViewController {
   
-  var name = "Johnny"
-  var age = 17
+  let name: Variable<String> = Variable("Johnny")
+  let age: Variable<Int> = Variable(17)
   
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var ageLabel: UILabel!
   
+  let disposeBag = DisposeBag()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    name.asObservable()
+        .bindTo(nameLabel.rx.text)
+        .addDisposableTo(disposeBag)
+    
+    age.asObservable()
+        .map { String($0) }
+        .bindTo(ageLabel.rx.text)
+        .addDisposableTo(disposeBag)
   }
   
   @IBAction func changeNameButtonPressed(_ sender: AnyObject) {
@@ -44,9 +55,9 @@ class ViewController: UIViewController {
       if let newValue = alert.textFields?.first?.text {
         switch dataToUpdate {
         case .age:
-          self.age = Int(newValue)!
+          self.age.value = Int(newValue)!
         case .name:
-          self.name = newValue
+          self.name.value = newValue
         }
       }
     }
