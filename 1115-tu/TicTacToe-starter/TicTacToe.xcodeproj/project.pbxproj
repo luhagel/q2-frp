@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B30B43450C786E2639DF5FA /* Pods_TicTacToe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 060826DAD93440591B1E6A84 /* Pods_TicTacToe.framework */; };
+		3F249BE01DDB9A76000A8E60 /* GamesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F249BDF1DDB9A76000A8E60 /* GamesTableViewController.swift */; };
 		559526F51DA4A79D0052F944 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559526F41DA4A79D0052F944 /* AppDelegate.swift */; };
 		559526F71DA4A79D0052F944 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559526F61DA4A79D0052F944 /* ViewController.swift */; };
 		559526FA1DA4A79D0052F944 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 559526F81DA4A79D0052F944 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		060826DAD93440591B1E6A84 /* Pods_TicTacToe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicTacToe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F249BDF1DDB9A76000A8E60 /* GamesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesTableViewController.swift; sourceTree = "<group>"; };
 		559526F11DA4A79D0052F944 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		559526F41DA4A79D0052F944 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		559526F61DA4A79D0052F944 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				559526FB1DA4A79D0052F944 /* Assets.xcassets */,
 				559526FD1DA4A79D0052F944 /* LaunchScreen.storyboard */,
 				559527001DA4A79D0052F944 /* Info.plist */,
+				3F249BDF1DDB9A76000A8E60 /* GamesTableViewController.swift */,
 			);
 			path = TicTacToe;
 			sourceTree = "<group>";
@@ -149,7 +152,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Nikolas Burk";
 				TargetAttributes = {
 					559526F01DA4A79D0052F944 = {
@@ -247,6 +250,7 @@
 				559526F51DA4A79D0052F944 /* AppDelegate.swift in Sources */,
 				55CE6E751DA557440095A0CF /* Player.swift in Sources */,
 				55CE6E791DA557C60095A0CF /* Board.swift in Sources */,
+				3F249BE01DDB9A76000A8E60 /* GamesTableViewController.swift in Sources */,
 				55CE6E771DA557510095A0CF /* Field.swift in Sources */,
 				55CE6E731DA552E70095A0CF /* FieldView.swift in Sources */,
 			);
@@ -292,6 +296,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -341,6 +346,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -369,6 +375,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 64FCB1FED9D5FD13FB8470B8 /* Pods-TicTacToe.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TicTacToe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -382,6 +389,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E1D57739215A91385D214030 /* Pods-TicTacToe.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TicTacToe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

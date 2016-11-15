@@ -19,6 +19,8 @@ class ViewController: UIViewController, BoardViewDelegate {
   
   private var disposeBag = DisposeBag()
   
+  var addGames: ((Board) -> Void)?
+  
   
   // MARK: View controller lifecycle
   
@@ -63,6 +65,7 @@ class ViewController: UIViewController, BoardViewDelegate {
     boardView.resetAllFieldsToEmpty()
     boardView.isUserInteractionEnabled = true
     currentTurnLabel.text = board.value.name(for: board.value.playerWithCurrentTurn())
+    addGames?(board.value)
   }
 
 
@@ -83,7 +86,6 @@ class ViewController: UIViewController, BoardViewDelegate {
     board.asObservable().subscribe(onNext: { (board: Board) in
       print("board changed")
     }).addDisposableTo(disposeBag)
-    
     
   }
   
